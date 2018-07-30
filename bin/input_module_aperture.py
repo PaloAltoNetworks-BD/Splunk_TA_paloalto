@@ -93,14 +93,17 @@ def collect_events(helper, ew):
                 timestamp = datetime.datetime.strptime(data['timestamp'], '%Y-%m-%dT%H:%M:%SZ')
                 final_time = (timestamp - datetime.datetime.fromtimestamp(0)).total_seconds()
                 helper.log_debug(final_time)
-                event = helper.new_event(
-                    host='api.aperture.paloaltonetworks.com',
-                    source=helper.get_input_stanza_names(),
-                    index=helper.get_output_index(),
-                    sourcetype=helper.get_sourcetype(),
-                    time=final_time,
-                    data=json.dumps(data))
-                ew.write_event(event)
+                try:
+                    event = helper.new_event(
+                        host='api.aperture.paloaltonetworks.com',
+                        source=helper.get_input_stanza_names(),
+                        index=helper.get_output_index(),
+                        sourcetype=helper.get_sourcetype(),
+                        time=final_time,
+                        data=json.dumps(data))
+                    ew.write_event(event)
+                except Exception as e:
+                    ew.log_error('Error on parse event. ' + str(e))
         elif r_status == 204:
             helper.log_debug("STATUS 204: No new events were found.")
             break
