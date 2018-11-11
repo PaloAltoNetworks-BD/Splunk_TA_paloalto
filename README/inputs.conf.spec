@@ -1,6 +1,9 @@
 [autofocus_export://<name>]
 label = 
-interval =
+#
+# Temporary horrible work around to allow certification into Cloud
+# https://github.com/PaloAltoNetworks/Splunk_TA_paloalto/issues/36
+#interval =
 
 [aperture://<name>]
 global_account =
