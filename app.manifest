@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "info": {
     "title": "Palo Alto Networks Add-on for Splunk",
     "id": {
@@ -19,7 +19,7 @@
     "classification": {
       "intendedAudience": null,
       "categories": [],
-      "developmentStatus": null
+      "developmentStatus": "Production/Stable"
     },
     "commonInformationModels": null,
     "license": {
@@ -49,5 +49,15 @@
     "splunk": {
       "Enterprise": "*"
     }
-  }
+  },
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed",
+    "_search_head_clustering"
+  ],
+  "targetWorkloads": [
+    "_search_heads",
+    "_indexers",
+    "_forwarders"
+  ]
 }
