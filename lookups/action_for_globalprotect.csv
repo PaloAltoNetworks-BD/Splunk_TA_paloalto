@@ -1,0 +1,5 @@
+signature,action
+globalprotectgateway-auth-fail,failure
+globalprotectgateway-auth-succ,success
+globalprotectportal-auth-fail,failure
+globalprotectportal-auth-succ,success
